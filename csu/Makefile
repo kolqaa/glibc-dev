@@ -28,7 +28,7 @@ include ../Makeconfig
 
 routines = init-first libc-start $(libc-init) sysdep version check_fds \
 	   libc-tls elf-init dso_handle
-aux	 = errno
+aux	 = errno rseq
 elide-routines.os = libc-tls
 static-only-routines = elf-init
 csu-dummies = $(filter-out $(start-installed-name),crt1.o Mcrt1.o)

@@ -279,6 +279,9 @@ __pthread_initialize_minimal_internal (void)
   THREAD_SETMEM (pd, cpuclock_offset, GL(dl_cpuclock_offset));
 #endif
 
+  /* Register rseq ABI to the kernel. */
+  (void) __rseq_register_current_thread ();
+
   /* Initialize the robust mutex data.  */
   {
 #if __PTHREAD_MUTEX_HAVE_PREV

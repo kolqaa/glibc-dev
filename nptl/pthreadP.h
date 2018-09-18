@@ -605,6 +605,9 @@ extern void __shm_directory_freeres (void) attribute_hidden;
 
 extern void __wait_lookup_done (void) attribute_hidden;
 
+extern int __rseq_register_current_thread (void) attribute_hidden;
+extern int __rseq_unregister_current_thread (void) attribute_hidden;
+
 #ifdef SHARED
 # define PTHREAD_STATIC_FN_REQUIRE(name)
 #else

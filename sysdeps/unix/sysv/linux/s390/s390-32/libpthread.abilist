@@ -229,6 +229,7 @@ GLIBC_2.28 tss_create F
 GLIBC_2.28 tss_delete F
 GLIBC_2.28 tss_get F
 GLIBC_2.28 tss_set F
+GLIBC_2.29 __rseq_refcount T 0x4
 GLIBC_2.3.2 pthread_cond_broadcast F
 GLIBC_2.3.2 pthread_cond_destroy F
 GLIBC_2.3.2 pthread_cond_init F

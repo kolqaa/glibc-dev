@@ -35,6 +35,12 @@ Major new features:
   different directory.  This is a GNU extension and similar to the
   Solaris function of the same name.
 
+* Support for automatically registering threads with the Linux rseq(2)
+  system call has been added. This system call is implemented starting
+  from Linux 4.18. In order to be activated, it requires that glibc is built
+  against kernel headers that include this system call, and that glibc
+  detects availability of that system call at runtime.
+
 Deprecated and removed features, and other changes affecting compatibility:
 
 * The glibc.tune tunable namespace has been renamed to glibc.cpu and the

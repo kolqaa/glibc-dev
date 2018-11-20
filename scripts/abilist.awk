@@ -55,7 +55,7 @@ $2 == "g" || $2 == "w" && (NF == 7 || NF == 8) {
   if (version == "GLIBC_PRIVATE") next;
 
   desc = "";
-  if (type == "D" && $4 == ".tbss") {
+  if (type == "D" && ($4 == ".tbss" || $4 == ".tdata")) {
     type = "T";
   }
   else if (type == "D" && $4 == ".opd") {
@@ -90,7 +90,8 @@ $2 == "g" || $2 == "w" && (NF == 7 || NF == 8) {
     size = "";
   }
   else {
-    desc = symbol " " version " " weak " ? " type " " $4 " " $5;
+    print "Unable to handle this type of symbol."
+    exit 1
   }
   if (size == " 0x") {
     desc = symbol " " version " " weak " ? " type " " $4 " " $5;

@@ -323,7 +323,7 @@ tests = tst-attr1 tst-attr2 tst-attr3 tst-default-attr \
 tests-internal := tst-rwlock19 tst-rwlock20 \
 		  tst-sem11 tst-sem12 tst-sem13 \
 		  tst-barrier5 tst-signal7 tst-mutex8 tst-mutex8-static \
-		  tst-mutexpi8 tst-mutexpi8-static
+		  tst-mutexpi8 tst-mutexpi8-static tst-rseq
 
 xtests = tst-setuid1 tst-setuid1-static tst-setuid2 \
 	tst-mutexpp1 tst-mutexpp6 tst-mutexpp10

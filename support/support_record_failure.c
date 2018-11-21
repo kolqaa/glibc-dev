@@ -32,8 +32,12 @@
    zero, the failure of a test can be detected.
 
    The init constructor function below puts *state on a shared
-   annonymous mapping, so that failure reports from subprocesses
-   propagate to the parent process.  */
+   anonymous mapping, so that failure reports from subprocesses
+   propagate to the parent process.
+
+   support_record_failure_init is exposed so it can be called explicitly
+   in case this API needs to be used from a constructor.  */
+
 struct test_failures
 {
   unsigned int counter;
@@ -41,10 +45,14 @@ struct test_failures
 };
 static struct test_failures *state;
 
-static __attribute__ ((constructor)) void
-init (void)
+__attribute__ ((constructor)) void
+support_record_failure_init (void)
 {
-  void *ptr = mmap (NULL, sizeof (*state), PROT_READ | PROT_WRITE,
+  void *ptr;
+
+  if (state != NULL)
+    return;
+  ptr = mmap (NULL, sizeof (*state), PROT_READ | PROT_WRITE,
                     MAP_ANONYMOUS | MAP_SHARED, -1, 0);
   if (ptr == MAP_FAILED)
     {

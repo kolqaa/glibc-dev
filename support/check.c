@@ -22,6 +22,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <support/test-driver.h>
 
 static void
@@ -56,5 +57,6 @@ support_exit_failure_impl (int status, const char *file, int line,
   va_start (ap, format);
   print_failure (file, line, format, ap);
   va_end (ap);
-  exit (status);
+  fflush(stdout);
+  _exit (status);
 }

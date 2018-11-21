@@ -88,6 +88,10 @@ void support_test_verify_exit_impl (int status, const char *file, int line,
    does not support reporting failures from a DSO.  */
 void support_record_failure (void);
 
+/* Initialize record failure.  Calling this is only needed when
+   recording failures from constructors.  */
+void support_record_failure_init (void);
+
 /* Static assertion, under a common name for both C++ and C11.  */
 #ifdef __cplusplus
 # define support_static_assert static_assert
